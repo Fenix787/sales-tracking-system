@@ -41,6 +41,37 @@ class QuoteDB extends MySQLSuper
         return $this->dbh->lastInsertId();
     }
 
+    public function updateItem($item)
+    {
+        // if quoteid is -1 preform delete on itemid
+        if ($item->quoteid == -1) {
+            // prepare delete query
+            $this->query("DELETE FROM Item WHERE id=:id");
+
+            // bind item parameters
+            $this->bind(":id", $item->id);
+
+            // execute built query
+            $this->execute();
+            trace("deleted item in database");
+        }
+        else {
+            // prepare update query
+            $this->query("UPDATE Item SET quote=:quote, title=:title, price=:price , qty=:qty WHERE id=:id");
+
+            // bind item parameters
+            $this->bind(":id", $item->id);
+            $this->bind(":quote", $item->quoteid);
+            $this->bind(":title", $item->title);
+            $this->bind(":price", $item->price);
+            $this->bind(":qty", $item->qty);
+
+            // execute built query
+            $this->execute();
+            trace("updated item in database");
+        }
+    }
+
     public function newItem($item)
     {
         // prepare insert query
@@ -60,12 +91,42 @@ class QuoteDB extends MySQLSuper
         return $this->dbh->lastInsertId();
     }
 
+    public function updateNote($note)
+    {
+        // if quoteid is -1 preform delete on nmoteid
+        if ($note->quoteid == -1) {
+            // prepare delete query
+            $this->query("DELETE FROM Note WHERE id=:id");
+
+            // bind note parameters
+            $this->bind(":id", $note->id);
+
+            // execute built query
+            $this->execute();
+            trace("deleted note in database");
+        }
+        else {
+            // prepare update query
+            $this->query("UPDATE Note SET quote=:quote, subject=:subject, message=:message WHERE id=:id");
+
+            // bind note parameters
+            $this->bind(":id", $inote->id);
+            $this->bind(":quote", $note->quoteid);
+            $this->bind(":subject", $note->subject);
+            $this->bind(":message", $note->message);
+
+            // execute built query
+            $this->execute();
+            trace("updated note in database");
+        }
+    }
+
     public function newNote($note)
     {
         // prepare insert query
         $this->query("INSERT INTO Note (id,quote,subject,message) VALUES (NULL,:quote,:subject,:message)");
 
-        // bind item parameters
+        // bind note parameters
         $this->bind(":quote", $note->quoteid);
         $this->bind(":subject", $note->subject);
         $this->bind(":message", $note->message);

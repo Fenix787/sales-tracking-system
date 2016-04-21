@@ -7,6 +7,7 @@ if ($inputCustomer != '') {
     $_SESSION['quote']->salesrep = $_SESSION['salesrep']->id;
     $_SESSION['quote']->id = $cqc->newQuote($_SESSION['salesrep']->id, $inputCustomer);
 }
+
 ?>
 
 <div class="container">
@@ -29,7 +30,7 @@ if ($inputCustomer != '') {
                 <tr>
                     <form action="index.php?action=addItem" method="POST">
                         <td><input name="itemTitle" id="itemTitle" type="text" class="form-control"/></td>
-                        <td><input name="itemQty" id="itemQty" type="text" class="form-control" value=0/></td>
+                        <td><input name="itemQty" id="itemQty" type="text" class="form-control" value="0"></td>
                         <td><input name="itemPrice" id="itemPrice" type="text" class="form-control"/></td>
                         <td>
                             <button class="btn btn-lg btn-primary btn-block" type="submit">Add Item</button>
@@ -43,7 +44,7 @@ if ($inputCustomer != '') {
                     <td>' . $item->title . '</td>
                     <td>' . $item->qty . '</td>
                     <td>$' . $item->price . '</td>
-                    <td></td>
+                    <td><form action="index.php?action=addItem&do=delete" method="POST"><input type="hidden" name="itemId" value="' . $item->id . '"><button class="btn btn-lg btn-primary btn-block" type="submit">Delete</button></form></td>
                     </form>
                   </tr>';
                     $total += $item->price * $item->qty;
@@ -80,10 +81,13 @@ if ($inputCustomer != '') {
                       </tr>
                       <tr>
                         <td>' . $note->message . '</td>
-                      </tr>';
-                } ?>
+                      </tr>
+                      <tr>
+                        <td>
+                            <form action="index.php?action=addNote&do=delete" method="POST"><input type="hidden" name="noteId" value="' . $note->id . '"><button class="btn btn-lg btn-primary btn-block" type="submit">Delete</button></form>
+                        </td>
+                      </tr>';} ?>
                 </tbody>
-                </form>
             </table>
         </div>
     </div>

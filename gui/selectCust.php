@@ -13,9 +13,7 @@
                     }
                     ?>
                 </select>
-                <p>
-                    <button class="btn btn-lg btn-primary btn-block" type="submit">Create Quote</button>
-                </p>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Create Quote</button>
             </form>
         </div>
     </div>

@@ -40,18 +40,9 @@ class CreateQuote
                 // store salesrep data in session
                 $_SESSION['salesrep'] = $authUser;
                 trace("authenticated salesrep stored in session");
-                return "<h3>You have logged in. Redirecting to <a href='index.php'>home</a> in <span id='counter'>5</span> second(s).</h3>" .
-                '<script type="text/javascript"> function countdown() { 
-                var i = document.getElementById("counter");
-                if (parseInt(i.innerHTML)<=0) {
-                    location.href = "index.php";
-                    }
-                 else {
-                    i.innerHTML = parseInt(i.innerHTML)-1;
-                 }
-                }
-                setInterval(function(){ countdown(); 
-               },1000);</script>';
+                // redirect to index
+                echo '<script type="text/javascript">window.location = "index.php"</script>';
+                return "You have been logged in.";
             } else {
                 // password does not match
                 return "Password does not match.";
@@ -86,6 +77,19 @@ class CreateQuote
         return $this->qdb->newItem($item);
     }
 
+    public function updateItem($item)
+    {
+        // update item
+        $this->qdb->updateItem($item);
+    }
+
+    public function updateNote($note)
+    {
+        // update note
+        $this->qdb->updateNote($note);
+    }
+
+
     public function addNote($note)
     {
         // verify quote has been created, and data for the note exists
@@ -107,7 +111,7 @@ class CreateQuote
 
     public function getCust()
     {
-        return $this->quote->customer;
+        return $_SESSION['quote']->customer;
     }
 
 }
