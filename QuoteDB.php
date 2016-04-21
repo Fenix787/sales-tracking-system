@@ -110,7 +110,7 @@ class QuoteDB extends MySQLSuper
             $this->query("UPDATE Note SET quote=:quote, subject=:subject, message=:message WHERE id=:id");
 
             // bind note parameters
-            $this->bind(":id", $inote->id);
+            $this->bind(":id", $note->id);
             $this->bind(":quote", $note->quoteid);
             $this->bind(":subject", $note->subject);
             $this->bind(":message", $note->message);
