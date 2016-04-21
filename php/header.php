@@ -1,4 +1,4 @@
-<?php $version = "v0.3.1"; ?>
+<?php $version = "v0.3.2"; ?>
     <head>
         <meta charset="latin1_swedish_ci">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
