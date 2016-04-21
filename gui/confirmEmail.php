@@ -4,6 +4,7 @@ $inputEmail = isset($_POST['inputEmail']) ? $_POST['inputEmail'] : '';
 // on first load inputCustomer is passed in and a new quote needs to be created in the database
 if ($inputEmail != '') {
     $cqc->confirmEmail($_SESSION['quote']->id, $inputEmail);
+    
     // clear data from the previous entry
     $_SESSION['quote'] = new Quote();
 

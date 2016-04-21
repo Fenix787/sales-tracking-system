@@ -9,11 +9,13 @@
             <?php
             if ($_SESSION['salesrep']->id == -1) {
                 echo '<li><a href="index.php?action=authSalesRep">Login</a></li>';
-            } else {
+            }
+            else {
                 echo '<li><a href="index.php?action=authSalesRep&do=logout">Logout</a></li>';
                 if ($_SESSION['quote']->id == -1) {
                     echo '<li><a href="index.php?action=selectCust">Create New Quote</a></li>';
-                } else {
+                }
+                else {
                     echo '<li><a href="index.php?action=newQuote">View Quote</a></li>' . "\n" .
                         '<li><a href="index.php?action=confirmEmail">Close Quote</a></li>';
                 }

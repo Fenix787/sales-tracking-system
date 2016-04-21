@@ -4,6 +4,8 @@
 	Database PDO Wrapper Class
 	Constructed using PDO tutorial from
 	http://culttt.com/2012/10/01/roll-your-own-pdo-php-class/
+
+    Modified and exapnded 4-16
 	
 	This class facilitates access to a mysql databse using the
 	PHP PDO Library. It supports using bind variables to prevent

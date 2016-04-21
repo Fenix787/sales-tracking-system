@@ -1,6 +1,6 @@
 <?php
 /*
-	CreateQuoteController Class
+	CreateQuote.php
 	
 	This class provides connections between the GUI and the DB interfaces
 

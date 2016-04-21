@@ -8,7 +8,8 @@ $authMsg = '';
 $do = isset($_REQUEST['do']) ? $_REQUEST['do'] : '';
 if ($do == 'logout') {
     $authMsg = '<h3>' . $cqc->authSalesRep(-1, -1) . '</h3>';
-} else if ($username != '' && $password != '') {
+}
+else if ($username != '' && $password != '') {
     $authMsg = '<h3>' . $cqc->authSalesRep($username, $password) . '</h3>';
 }
 ?>

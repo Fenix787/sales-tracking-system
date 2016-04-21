@@ -1,6 +1,6 @@
 <?php
 /*
-	QuoteDB Class
+	QuoteDB.php
 	
 	This class provides functions to access quotes, and their items and notes
 

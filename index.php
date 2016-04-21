@@ -11,15 +11,16 @@
 trace(print_r($_REQUEST, true));
 if (array_key_exists('action', $_REQUEST) && $_SESSION['salesrep']->id != -1) {
     $action = $_GET['action'];
-} else if ($_SESSION['salesrep']->id != -1) {
+}
+else if ($_SESSION['salesrep']->id != -1) {
     $action = 'selectCust';
-} else {
+}
+else {
     $action = 'authSalesRep';
 }
 
-include('gui/' . $action . '.php'); ?>
-
-<?php include "php/footer.php"; ?>
+include('gui/' . $action . '.php');
+include "php/footer.php"; ?>
 
 </body>
 </html>

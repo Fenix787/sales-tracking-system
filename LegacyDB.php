@@ -1,6 +1,6 @@
 <?php
 /*
-	LegacyDB Class
+	LegacyDB.php
 	
 	This class provides functions to access the legacy customer database
 

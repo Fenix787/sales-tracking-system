@@ -1,6 +1,6 @@
 <?php
 /*
-	SalesRepDB Class
+	SalesRepDB.php
 	
 	This class provides functions to access data related to sales reps
 
