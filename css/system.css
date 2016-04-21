@@ -1,0 +1,66 @@
+/*
+	system css
+	
+	This file holds the css style for the sales tracking system
+
+*/
+
+body {
+    background-color: #eee;
+}
+
+/* style for sign in and email forms */
+
+.salesrepgui-form {
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+.salesrepgui-form .authsalesrep-heading,
+.salesrepgui-form .checkbox {
+    margin-bottom: 10px;
+}
+
+.salesrepgui-form .checkbox {
+    font-weight: normal;
+}
+
+.salesrepgui-form .form-control {
+    position: relative;
+    height: auto;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.salesrepgui-form .form-control:focus {
+    z-index: 2;
+}
+
+.salesrepgui-form input[type="text"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.salesrepgui-form input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+/* style for nav bar */
+
+.navbar-brand {
+    line-height: 12px;
+    padding-top: 20px;
+    padding-bottom: 5px;
+}
+
+.navbar-brand small {
+    display: block;
+    font-size: 10px;
+}
