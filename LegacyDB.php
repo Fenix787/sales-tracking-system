@@ -14,11 +14,14 @@ class LegacyDB extends MySQLSuper
     // database configuration
     function __construct()
     {
-        $this->host = "localhost";
-        $this->user = "csci467";
-        $this->pass = "huskies";
-        $this->db_name = "LegacyCustomer";
-
+//        $this->host = "localhost";
+//        $this->user = "csci467";
+//        $this->pass = "huskies";
+//       $this->db_name = "LegacyCustomer";
+	$this->host = "blitz.cs.niu.edu"
+	$this->user = "student";
+	$this->pass = "student";
+	$this->db_name = "csci467";
         // call super construct
         $this->super_construct();
     }
