@@ -19,7 +19,6 @@ class CreateQuote
 
     public function __construct()
     {
-        $row = array();
         $this->ldb = new LegacyDB;
         $this->qdb = new QuoteDB;
         $this->srdb = new SalesRepDB;
@@ -29,6 +28,7 @@ class CreateQuote
     {
         // if user is not authorized yet
         if ($_SESSION['salesrep']->id == -1 && $username != '-1' && $password != '-1') {
+            trace("authing salesrep");
             // get auth data
             $authUser = $this->srdb->getPassword($username);
 
@@ -42,7 +42,7 @@ class CreateQuote
                 trace("authenticated salesrep stored in session");
                 // redirect to index
                 echo '<script type="text/javascript">window.location = "index.php"</script>';
-                return "You have been logged in.";
+                exit();
             } else {
                 // password does not match
                 return "Password does not match.";
@@ -51,7 +51,7 @@ class CreateQuote
         else if ($username == '-1' && $password == '-1') {
             session_unset();
             session_destroy();
-            trace("session destroyed");
+            trace("user logged out, session destroyed");
             return "You have been logged out.";
         } else {
             return "You have already logged in.";

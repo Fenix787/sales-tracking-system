@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" autoUpload="Always" serverName="kclarke.co" filePermissions="511">
+  <component name="PublishConfigData" autoUpload="Always" serverName="hopper.cs.niu.edu" filePermissions="511">
     <serverData>
-      <paths name="kclarke.co">
+      <paths name="hopper.cs.niu.edu">
         <serverdata>
           <mappings>
             <mapping deploy="sales" local="$PROJECT_DIR$" web="sales" />

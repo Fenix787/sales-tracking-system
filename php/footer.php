@@ -7,3 +7,5 @@
 <script src="../bower_components/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="../bower_components/bootstrap/assets/js/ie10-viewport-bug-workaround.js"></script>
+</body>
+</html>

@@ -1,4 +1,7 @@
-<?php $version = "v0.3.4"; ?>
+<?php session_start();
+$version = "v0.3.4"; ?>
+<!DOCTYPE html>
+<html lang="en">
     <head>
         <meta charset="latin1_swedish_ci">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -39,13 +42,15 @@ function trace($text)
 $cqc = new CreateQuote;
 trace("controller created");
 
-session_start();
+trace("test : " . $_SESSION['test']);
+
 if (!isset($_SESSION['quote'])) {
     $_SESSION['quote'] = new Quote;
-    trace("new quote created and saved in session");
+    trace("empty quote created and saved in session");
 }
 if (!isset($_SESSION['salesrep'])) {
     $_SESSION['salesrep'] = new SalesRep(array());
-    trace("new salesrep created and saved in session");
+    trace("empty salesrep created and saved in session");
 }
+
 ?>

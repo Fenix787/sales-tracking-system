@@ -14,10 +14,10 @@ class QuoteDB extends MySQLSuper
     // database configuration
     function __construct()
     {
-        $this->host = "localhost";
-        $this->user = "csci467";
-        $this->pass = "huskies";
-        $this->db_name = "Sales";
+        $this->host = "blitz.cs.niu.edu";
+        $this->user = "db4user";
+        $this->pass = "db4password";
+        $this->db_name = "dbfour";
         $this->table_name = "Quote";
 
         $this->super_construct();

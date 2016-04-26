@@ -45,6 +45,7 @@ class MySQLSuper
         } // Catch any errors
         catch (PDOException $e) {
             $this->error = $e->getMessage();
+            trace($this->error);
         }
     }
 

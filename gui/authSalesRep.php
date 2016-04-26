@@ -12,6 +12,7 @@ if ($do == 'logout') {
 else if ($username != '' && $password != '') {
     $authMsg = '<h3>' . $cqc->authSalesRep($username, $password) . '</h3>';
 }
+trace("AuthGUI Salesrepid : " . $_SESSION['salesrep']->id);
 ?>
 
 <div class="container">
