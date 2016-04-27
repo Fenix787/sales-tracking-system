@@ -7,8 +7,7 @@ include "php/header.php";
 include "php/navbar.php";
 
 // preform the specified task, default to home if not logged in
-trace(print_r($_REQUEST, true));
-if (array_key_exists('action', $_REQUEST) && $_SESSION['salesrep']->id != -1) {
+if (isset($_GET['action']) && $_SESSION['salesrep']->id != -1) {
     $action = $_GET['action'];
 }
 else if ($_SESSION['salesrep']->id != -1) {
@@ -19,5 +18,11 @@ else {
 }
 
 include('gui/' . $action . '.php');
+
+// trace request
+trace(print_r($_REQUEST, true));
+
+// print trace
+echo '<pre>' . $logText . '</pre>';
 include "php/footer.php";
 ?>

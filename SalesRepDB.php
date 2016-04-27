@@ -20,7 +20,16 @@ class SalesRepDB extends MySQLSuper
         $this->db_name = "dbfour";
         $this->table_name = "SalesRep";
 
+        // super constructor
         $this->super_construct();
+
+        // trace if any errors
+        if ($this->error != "") {
+            trace($this->error);
+        }
+        else {
+            trace("connected to salesrep db");
+        }
     }
 
     public function getPassword($username)

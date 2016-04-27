@@ -18,8 +18,17 @@ class LegacyDB extends MySQLSuper
 	    $this->user = "student";
 	    $this->pass = "student";
 	    $this->db_name = "csci467";
-        // call super construct
+
+        // super constructor
         $this->super_construct();
+
+        // trace if any errors
+        if ($this->error != "") {
+            trace($this->error);
+        }
+        else {
+            trace("connected to legacy db");
+        }
     }
 
     public function getCustList()

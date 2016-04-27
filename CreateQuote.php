@@ -19,16 +19,16 @@ class CreateQuote
 
     public function __construct()
     {
-        $this->ldb = new LegacyDB;
-        $this->qdb = new QuoteDB;
-        $this->srdb = new SalesRepDB;
+        // constructor
     }
 
     public function authSalesRep($username, $password)
     {
         // if user is not authorized yet
         if ($_SESSION['salesrep']->id == -1 && $username != '-1' && $password != '-1') {
-            trace("authing salesrep");
+            // connect to salesrep db
+            if (! isset($this->srdb)) { $this->srdb = new SalesRepDB; }
+
             // get auth data
             $authUser = $this->srdb->getPassword($username);
 
@@ -54,37 +54,54 @@ class CreateQuote
             trace("user logged out, session destroyed");
             return "You have been logged out.";
         } else {
-            return "You have already logged in.";
+            trace("user already logged in.");
+            echo '<script type="text/javascript">window.location = "index.php"</script>';
+            exit();
         }
 
     }
 
     public function getCustList()
     {
+        // connect to legacy datbase
+        if (! isset($this->ldb)) { $this->ldb = new LegacyDB; }
+
         // return the customer list from the legacy database
         return $this->ldb->getCustList();
     }
 
     public function newQuote($salesrepid, $customer)
     {
+        // connect to quote db
+        if (! isset($this->qdb)) { $this->qdb = new QuoteDB; }
+
         // store quote in database and return a local copy
         return $this->qdb->newQuote($salesrepid, $customer);
     }
 
     public function addItem($item)
     {
+        // connect to quote db
+        if (! isset($this->qdb)) { $this->qdb = new QuoteDB; }
+
         // store item in database and return the generated id
         return $this->qdb->newItem($item);
     }
 
     public function updateItem($item)
     {
+        // connect to quote db
+        if (! isset($this->qdb)) { $this->qdb = new QuoteDB; }
+
         // update item
         $this->qdb->updateItem($item);
     }
 
     public function updateNote($note)
     {
+        // connect to quote db
+        if (! isset($this->qdb)) { $this->qdb = new QuoteDB; }
+
         // update note
         $this->qdb->updateNote($note);
     }
@@ -92,12 +109,18 @@ class CreateQuote
 
     public function addNote($note)
     {
+        // connect to quote db
+        if (! isset($this->qdb)) { $this->qdb = new QuoteDB; }
+
         // verify quote has been created, and data for the note exists
         return $this->qdb->newNote($note);
     }
 
     public function confirmEmail($quoteid, $email)
     {
+        // connect to quote db
+        if (! isset($this->qdb)) { $this->qdb = new QuoteDB; }
+
         // store email address and status for quote
         $this->qdb->confirmEmail($quoteid, $email);
         $this->sanctionQuote($quoteid);
@@ -105,6 +128,9 @@ class CreateQuote
 
     public function sanctionQuote($quoteid)
     {
+        // connect to quote db
+        if (! isset($this->qdb)) { $this->qdb = new QuoteDB; }
+
         // sanction quote in database
         $this->qdb->sanctionQuote($quoteid, 1);
     }

@@ -29,7 +29,6 @@ class MySQLSuper
     // default super constructor
     protected function super_construct()
     {
-
         // Create new database object
         $dsn = 'mysql:host=' . $this->host . ';dbname=' . $this->db_name;
 
@@ -145,7 +144,11 @@ class MySQLSuper
         // execute built query and return result
         return $this->execute();
     }
-}
 
+    public function disconnect () {
+        $this->stmt = null;
+        $this->dbh = null;
+    }
+}
 
 ?>

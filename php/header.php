@@ -1,5 +1,5 @@
 <?php session_start();
-$version = "v0.4.1"; ?>
+$version = "v0.4.2"; ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -11,7 +11,6 @@ $version = "v0.4.1"; ?>
         <meta name="author" content="Undergrand Group 4">
 
         <title>Sales Tracking System <?php echo $version; ?></title>
-
         <!-- Bootstrap core CSS -->
         <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <!-- Font Awesome core CSS -->
@@ -24,7 +23,6 @@ $version = "v0.4.1"; ?>
         <link href="../bower_components/bootstrap/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
         <link href="css/system.css" rel="stylesheet">
-
     </head>
 <?php
 
@@ -32,25 +30,26 @@ ini_set('display_errors', 'On');
 include "CreateQuote.php";
 
 $logText = "";
+$logCount = 0;
 
 function trace($text)
 {
     global $logText;
-    $logText .= $text . '<br>';
+    global $logCount;
+    $logCount++;
+    $logText .= $logCount . ' |' . $text . '<br>';
 }
 
 $cqc = new CreateQuote;
-trace("controller created");
-
-trace("test : " . $_SESSION['test']);
+trace("CreateQuote controller created");
 
 if (!isset($_SESSION['quote'])) {
     $_SESSION['quote'] = new Quote;
-    trace("empty quote created and saved in session");
+    trace("empty quote stored in session");
 }
 if (!isset($_SESSION['salesrep'])) {
     $_SESSION['salesrep'] = new SalesRep(array());
-    trace("empty salesrep created and saved in session");
+    trace("empty salesrep stored in session");
 }
 
 ?>

@@ -20,8 +20,16 @@ class QuoteDB extends MySQLSuper
         $this->db_name = "dbfour";
         $this->table_name = "Quote";
 
+        // super constructor
         $this->super_construct();
-        trace($this->error);
+
+        // trace if any errors
+        if ($this->error != "") {
+            trace($this->error);
+        }
+        else {
+            trace("connected to quote db");
+        }
     }
 
     public function newQuote($salesrepid, $customer)
