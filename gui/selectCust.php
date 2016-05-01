@@ -1,6 +1,4 @@
-<div class="container">
-    <div class="row">
-        <div class="col-lg-12 text-center">
+<div class="col-lg-12 text-center">
             <h1>Select a customer</h1>
             <form class="salesrepgui-form" action="index.php?action=newQuote" method="POST">
                 <select class="selectpicker form-control" name="inputCustomer" data-live-search="true">';
@@ -16,5 +14,3 @@
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Create Quote</button>
             </form>
         </div>
-    </div>
-</div>
