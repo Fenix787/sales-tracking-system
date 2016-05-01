@@ -35,7 +35,7 @@ class QuoteDB extends MySQLSuper
     public function newQuote($salesrepid, $customer)
     {
         // prepare insert query
-        $this->query("INSERT INTO Quote (id,salesrep,created,converted,status,cust,discount,comission,email) VALUES (NULL,:salesrepid,NOW(),NULL,0,:customer,NULL,NULL,NULL)");
+        $this->query("INSERT INTO Quote (id,salesrep,created,converted,status,cust,discount,comission,email) VALUES (NULL,:salesrepid,NOW(),NULL,0,:customer,0,0,NULL)");
 
         // bind quote parameters
         $this->bind(":salesrepid", $salesrepid);
