@@ -29,9 +29,9 @@ if ($inputCustomer != '') {
                 </tr>
                 <tr>
                     <form action="index.php?action=addItem" method="POST">
-                        <td><input name="itemTitle" id="itemTitle" type="text" class="form-control"/></td>
-                        <td><input name="itemQty" id="itemQty" type="text" class="form-control" value="0"></td>
-                        <td><input name="itemPrice" id="itemPrice" type="text" class="form-control"/></td>
+                        <td><input name="itemTitle" id="itemTitle" type="text" class="form-control" required/></td>
+                        <td><input name="itemQty" id="itemQty" type="text" class="form-control" value="0" required/></td>
+                        <td><input name="itemPrice" id="itemPrice" type="text" class="form-control" required/></td>
                         <td>
                             <button class="btn btn-lg btn-primary btn-block" type="submit">Add Item</button>
                         </td>
@@ -67,7 +67,7 @@ if ($inputCustomer != '') {
                     </tr>
                     <tr>
                         <td><textarea id="noteMessage" name="noteMessage" class="form-control" rows="5"
-                                      placeholder="Message"></textarea></td>
+                                      placeholder="Message" required></textarea></td>
                     </tr>
                     <tr>
                         <td>

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" autoUpload="Always" serverName="hopper.cs.niu.edu" filePermissions="511">
+  <component name="PublishConfigData" autoUpload="Always" serverName="turing" filePermissions="511">
     <serverData>
-      <paths name="hopper.cs.niu.edu">
+      <paths name="turing">
         <serverdata>
           <mappings>
-            <mapping deploy="sales" local="$PROJECT_DIR$" web="sales" />
+            <mapping local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>
