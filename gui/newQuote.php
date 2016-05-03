@@ -30,26 +30,33 @@ if ($inputCustomer != '') {
                 <tr>
                     <form action="index.php?action=addItem" method="POST">
                         <td><input name="itemTitle" id="itemTitle" type="text" class="form-control" required/></td>
-                        <td><input name="itemQty" id="itemQty" type="text" class="form-control" value="0" required/></td>
-                        <td><input name="itemPrice" id="itemPrice" type="text" class="form-control" required/></td>
+                        <td><input name="itemQty" id="itemQty" type="number" class="form-control" value="0" required/></td>
+                        <td><input name="itemPrice" id="itemPrice" type="number" step="any" class="form-control" required/></td>
                         <td>
                             <button class="btn btn-lg btn-primary btn-block" type="submit">Add Item</button>
                         </td>
                     </form>
                 </tr>
 
-                <?php $total = 0;
+                <?php
+                // zero out total
+                $total = 0;
+
+                // create formatter
+                $formatter = new NumberFormatter('en_US',  NumberFormatter::CURRENCY);
+
+                // display items
                 foreach ($_SESSION['quote']->items as $item) {
                     echo '<tr>
                     <td>' . $item->title . '</td>
                     <td>' . $item->qty . '</td>
-                    <td>$' . $item->price . '</td>
+                    <td>' . $formatter->formatCurrency($item->price, 'USD') . '</td>
                     <td><form action="index.php?action=addItem&do=delete" method="POST"><input type="hidden" name="itemId" value="' . $item->id . '"><button class="btn btn-lg btn-primary btn-block" type="submit">Delete</button></form></td>
                     </form>
                   </tr>';
                     $total += $item->price * $item->qty;
                 }
-                echo '<tr><td></td><td>Total : </td><td>$' . $total . '</td><td></td></tr>';
+                echo '<tr><td></td><td>Total : </td><td>' . $formatter->formatCurrency($total, 'USD') . '</td><td></td></tr>';
                 ?>
                 </tbody>
             </table>
@@ -94,9 +101,9 @@ if ($inputCustomer != '') {
 </div>
 <div class="container">
     <div class="row">
-        <div class="col-md-12 text-center">
+        <div class="col-md-2 col-md-offset-5 text-center">
             <form action="index.php?action=confirmEmail" method="POST">
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Attach Email and Close Quote</button>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Close Quote</button>
             </form>
         </div>
     </div>
