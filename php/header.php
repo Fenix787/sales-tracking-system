@@ -1,9 +1,10 @@
 <?php session_start();
-$version = "v0.4.2"; ?>
+header('Content-type: text/html; charset=latin1_swedish_ci');
+$version = "v0.4.7"; ?>
 <!DOCTYPE html>
-<html lang="en">
+<html>
     <head>
-        <meta charset="latin1_swedish_ci">
+        <meta http-equiv="Content-Type" content="text/html;charset=latin1_swedish_ci">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
